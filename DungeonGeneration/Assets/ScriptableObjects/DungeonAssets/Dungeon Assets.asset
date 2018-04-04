@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d50a60e5f87314a908eaa492ee55da, type: 3}
+  m_Name: Dungeon Assets
+  m_EditorClassIdentifier: 
+  walls:
+  - {fileID: 1243858411304590, guid: 348988f6f5c2e974a9758d854f47f9d2, type: 2}
+  floors:
+  - {fileID: 1974707107350992, guid: 03214f5a518c6fb4eb52ea2c04363c44, type: 2}
+  pillars:
+  - {fileID: 1220790371088456, guid: 521a4a5d8fbbbf642ba2202eea968cc5, type: 2}
+  - {fileID: 1996277220676538, guid: 663d090863b1e614f8c164f9d58e811c, type: 2}
+  pillarTileFrequency: 4
+  door: {fileID: 114087427292825452, guid: af3cb7d3cd5c2004dad8110f1599d813, type: 2}
+  startingRoom: {fileID: 11400000, guid: 19b9137afffa5ee41bb788b26303f0d2, type: 2}
+  goalRoom: {fileID: 11400000, guid: 0be5d1ea171443c419b8b8607b16a107, type: 2}
+  mainRoomTypes:
+  - {fileID: 11400000, guid: ebe1953a27d804240b3d07d3385f32bd, type: 2}
+  - {fileID: 11400000, guid: 18475a5d41d2f9b4b8465ddf4a99bab1, type: 2}
+  smallRoomTypes:
+  - {fileID: 11400000, guid: ebe1953a27d804240b3d07d3385f32bd, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f048d12f087fe442b7f599dd5ff9b39, type: 3}
+  m_Name: Goal Room
+  m_EditorClassIdentifier: 
+  name: Goal
+  goalObject: {fileID: 114989187092266116, guid: 044b8617824fdb245968f65c780f09bc,
+    type: 2}
+  propsWall:
+  - {fileID: 1951670142960862, guid: 599c501b6d1322047855dcd1be7139b3, type: 2}
+  - {fileID: 1538477238561556, guid: c1c7e6d5718e5434da87b611cd19e9d2, type: 2}
+  propPerWallFrequency: 0.5

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0031f4b9d3ab44192b8f956a5e3447, type: 3}
+  m_Name: Storage Room
+  m_EditorClassIdentifier: 
+  name: Storage
+  propsWall:
+  - {fileID: 1538477238561556, guid: c1c7e6d5718e5434da87b611cd19e9d2, type: 2}
+  propsFloor:
+  - {fileID: 1096703619477448, guid: a16276f9734b83d4c9ceff901c65fb8e, type: 2}
+  propPerWallFrequency: 0.1
+  propPerFloorFrequency: 0.1
