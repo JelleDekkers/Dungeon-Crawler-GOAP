@@ -24,6 +24,7 @@ public class DungeonGenerator : MonoBehaviour {
     public Action<DungeonData> OnGeneratingCompleted;
 
     private List<Room> allRooms, mainRooms, smallRooms, connectedSmallRooms;
+    private HashSet<Vector2Int> corridorCorners;
     private float totalWidth, totalHeight;
     private Tile[,] dungeon;
     private Vector2Int gridOffset;
@@ -47,7 +48,7 @@ public class DungeonGenerator : MonoBehaviour {
         AddRoomTilesToGrid(connectedSmallRooms, Tile.SmallRoomFloor);
 
         if(OnGeneratingCompleted != null) {
-            DungeonData data = new DungeonData(mainRooms, connectedSmallRooms, dungeon, gridOffset);
+            DungeonData data = new DungeonData(mainRooms, connectedSmallRooms, dungeon, gridOffset, corridorCorners);
             OnGeneratingCompleted(data);
         }
     }
@@ -58,6 +59,7 @@ public class DungeonGenerator : MonoBehaviour {
         dungeon = null;
         smallRooms = null;
         connectedSmallRooms = null;
+        corridorCorners = null;
 
         foreach (Transform child in transform)
             Destroy(child.gameObject);
@@ -165,6 +167,7 @@ public class DungeonGenerator : MonoBehaviour {
 
     private void CreateCorridors() {
         connectedSmallRooms = new List<Room>();
+        corridorCorners = new HashSet<Vector2Int>();
 
         foreach (Room room in mainRooms) {
             int iterations = (int)Mathf.Lerp(corridorsPerRoom.min, corridorsPerRoom.max, corridorAmountBellCurve.Evaluate(Random.value));
@@ -175,9 +178,11 @@ public class DungeonGenerator : MonoBehaviour {
         }
     }
 
-    private void AddCorridorToGrid(Corridor corrider) {
-        Room startRoom = corrider.start;
-        Room endRoom = corrider.end;
+    private void AddCorridorToGrid(Corridor corridor) {
+        Room startRoom = corridor.start;
+        Room endRoom = corridor.end;
+
+        int cornerX = 0, cornerY = 0;
 
         // Horizontal:
         Room leftRoom = startRoom.position.x <= endRoom.position.x ? startRoom : endRoom;
@@ -187,13 +192,13 @@ public class DungeonGenerator : MonoBehaviour {
         for (int x = leftRoom.position.x - gridOffset.x; x < rightRoom.position.x - gridOffset.x; x++) {
             if (dungeon[x, verticalIndex] == Tile.None) {
                 dungeon[x, verticalIndex] = Tile.Corridor;
-                corrider.tiles.Add(new Vector2Int(x, verticalIndex));
 
                 Room neighbouringSmallRoom = CheckForPossibleNeighbouringSmallRoom(x + gridOffset.x, verticalIndex + gridOffset.y);
                 if (neighbouringSmallRoom != null) {
                     connectedSmallRooms.Add(neighbouringSmallRoom);
                     smallRooms.Remove(neighbouringSmallRoom);
                 }
+                cornerX = x + gridOffset.x;
             }
         }
 
@@ -205,15 +210,18 @@ public class DungeonGenerator : MonoBehaviour {
         for (int y = bottomRoom.position.y - gridOffset.y; y < upperRoom.position.y + 1 - gridOffset.y; y++) {
             if (dungeon[horizontalIndex, y] == Tile.None) {
                 dungeon[horizontalIndex, y] = Tile.Corridor;
-                corrider.tiles.Add(new Vector2Int(horizontalIndex, y));
 
                 Room neighbouringSmallRoom = CheckForPossibleNeighbouringSmallRoom(horizontalIndex + gridOffset.x, y + gridOffset.y);
                 if (neighbouringSmallRoom != null) {
                     connectedSmallRooms.Add(neighbouringSmallRoom);
                     smallRooms.Remove(neighbouringSmallRoom);
                 }
+                cornerY = y + gridOffset.y;
             }
         }
+
+        if (!corridorCorners.Contains(new Vector2Int(cornerX, cornerY)))
+            corridorCorners.Add(new Vector2Int(cornerX + 1, cornerY));
     }
 
     private Room CheckForPossibleNeighbouringSmallRoom(int x, int y) {
@@ -341,7 +349,7 @@ public class DungeonGenerator : MonoBehaviour {
         if (GUILayout.Button("Assign small room tiles"))
             AddRoomTilesToGrid(connectedSmallRooms, Tile.SmallRoomFloor);
         if(GUILayout.Button("On Complete")) {
-            DungeonData data = new DungeonData(mainRooms, connectedSmallRooms, dungeon, gridOffset);
+            DungeonData data = new DungeonData(mainRooms, connectedSmallRooms, dungeon, gridOffset, corridorCorners);
             OnGeneratingCompleted(data);
         }
 

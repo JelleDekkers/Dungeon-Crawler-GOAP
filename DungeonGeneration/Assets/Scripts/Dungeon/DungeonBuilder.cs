@@ -94,7 +94,6 @@ public class DungeonBuilder : MonoBehaviour {
         }
     }
 
-    // in for loop?
     private void CreateMainRoomWall(Room room) {
         // Horizontal
         for (int x = room.UpperLeftCornerPosition.x + 1; x < room.BottomRightCornerPosition.x; x++) {

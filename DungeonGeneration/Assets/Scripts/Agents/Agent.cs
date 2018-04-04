@@ -17,6 +17,7 @@ public class Agent : MonoBehaviour {
     [SerializeField] private float healthPoints;
     [SerializeField] private float damageAmount = 10;
 
+    private PhysicsCharacterController physics;
     private CustomCharacterController controller;
     private Animator animator;
     private RagdollHandler ragdollHandler;
@@ -31,6 +32,7 @@ public class Agent : MonoBehaviour {
         controller.OnAgentHit += AttackAgent;
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
+        physics = GetComponent<PhysicsCharacterController>();
     }
 
     private void AttackAgent(Agent agent) {
@@ -51,6 +53,7 @@ public class Agent : MonoBehaviour {
         rigidbody.isKinematic = false;
         rigidbody.useGravity = true;
         collider.enabled = false;
+        physics.enabled = false;
 
         if (OnDeath != null)
             OnDeath();

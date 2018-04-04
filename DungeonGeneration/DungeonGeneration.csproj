@@ -309,6 +309,7 @@
     <Compile Include="Assets\Scripts\Dungeon\ScriptableObjects\RoomTypes\StorageRoom.cs" />
     <Compile Include="Assets\Scripts\Dungeon\ScriptableObjects\RoomTypes\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\Dungeon\TileEdge.cs" />
+    <Compile Include="Assets\Scripts\Dungeon\WaypointSpawner.cs" />
     <Compile Include="Assets\Scripts\GoalReachedHandler.cs" />
     <Compile Include="Assets\Scripts\GOAP\Action.cs" />
     <Compile Include="Assets\Scripts\GOAP\Actions\MoveToEnemyAction.cs" />
@@ -333,6 +334,8 @@
     <Compile Include="Assets\Scripts\Helpers\Extensions.cs" />
     <Compile Include="Assets\Scripts\Helpers\IntMinMax.cs" />
     <Compile Include="Assets\Scripts\Helpers\RagdollHandler.cs" />
+    <Compile Include="Assets\Scripts\Pathfinding\Pathfinder.cs" />
+    <Compile Include="Assets\Scripts\Pathfinding\Waypoint.cs" />
     <Compile Include="Assets\Scripts\PlayerDummy.cs" />
     <Compile Include="Assets\Scripts\ShieldCollider.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />

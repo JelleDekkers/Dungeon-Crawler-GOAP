@@ -62,8 +62,8 @@ public class Room {
         Gizmos.DrawWireCube(pos, new Vector3(width, 1.5f, height));
         Handles.color = Color.red;
         //Handles.Label(new Vector3(position.x, 1, position.y), Id.ToString() + position.ToString() + '\n' + " w " + width + " h " + height);
-        if(RoomType != null)
-            Handles.Label(new Vector3(position.x, 1, position.y), Id.ToString() + " " + RoomType.ToString());
+        //if(RoomType != null)
+        //    Handles.Label(new Vector3(position.x, 1, position.y), Id.ToString() + " " + RoomType.ToString());
     }
 
     public bool ContainsPosition(int x, int y) {
