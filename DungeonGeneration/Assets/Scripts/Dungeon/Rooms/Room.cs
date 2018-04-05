@@ -64,6 +64,11 @@ public class Room {
         //Handles.Label(new Vector3(position.x, 1, position.y), Id.ToString() + position.ToString() + '\n' + " w " + width + " h " + height);
         //if(RoomType != null)
         //    Handles.Label(new Vector3(position.x, 1, position.y), Id.ToString() + " " + RoomType.ToString());
+
+        Gizmos.color = Color.green;
+        foreach (Corridor c in corridors)
+            Gizmos.DrawLine(c.start.position.ToVector3(), c.end.position.ToVector3());
+
     }
 
     public bool ContainsPosition(int x, int y) {

@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour {
     public IntMinMax enemiesPerRoom;
     public Agent[] enemies;
 
-    private void Start() {
+    private void Awake() {
         GetComponent<DungeonBuilder>().OnDungeonBuilt += SpawnEnemies;
     }
 

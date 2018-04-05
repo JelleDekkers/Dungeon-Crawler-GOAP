@@ -6,7 +6,7 @@ public class WaypointSpawner : MonoBehaviour {
 
     [SerializeField] private Waypoint waypointPrefab;
 
-    private void Start() {
+    private void Awake() {
         GetComponent<DungeonBuilder>().OnDungeonBuilt += SpawnWayPoints;
     }
 

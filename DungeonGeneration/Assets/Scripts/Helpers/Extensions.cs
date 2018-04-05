@@ -25,4 +25,8 @@ public static class Extensions {
         }
         return tMin;
     }
+
+    public static Vector3 ToVector3(this Vector2Int coordinates, int y = 0) {
+        return new Vector3(coordinates.x, y, coordinates.y);
+    }
 }

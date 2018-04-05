@@ -35,10 +35,12 @@ public class PathFinder : MonoBehaviour {
 			currentNode = openList.Values[0];
 			openList.RemoveAt(0);
 			var dist = currentNode.distance;
-			closedList.Add (currentNode);
-			if (currentNode == endNode) 
-				break;
-			
+			closedList.Add(currentNode);
+            if (currentNode == endNode) {
+                Debug.Log("path found");
+                break;
+            }
+
 			foreach (var neighbor in currentNode.neighbours) {
 				if (closedList.Contains(neighbor) || openList.ContainsValue(neighbor))
 					continue;
@@ -46,12 +48,13 @@ public class PathFinder : MonoBehaviour {
 				neighbor.previous = currentNode;
 				neighbor.distance = dist + (neighbor.transform.position - currentNode.transform.position).magnitude;
 				float distanceToTarget = (neighbor.transform.position - endNode.transform.position).magnitude;
-				openList.Add (neighbor.distance + distanceToTarget, neighbor);
+				openList.Add(neighbor.distance + distanceToTarget, neighbor);
 			}
 		}
-		if (currentNode == endNode) {
+
+        if (currentNode == endNode) {
 			while (currentNode.previous != null) {
-				currentPath.Push (currentNode.transform.position);
+				currentPath.Push(currentNode.transform.position);
 				currentNode = currentNode.previous;
 			}
 			currentPath.Push(transform.position);

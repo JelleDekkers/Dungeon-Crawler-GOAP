@@ -29,8 +29,10 @@ public class DungeonGenerator : MonoBehaviour {
     private Tile[,] dungeon;
     private Vector2Int gridOffset;
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+    [SerializeField] private bool useDebugGUI;
+
+    private void Start() {
+        if (!useDebugGUI) {
             ResetDungeon();
             GenerateDungeon();
         }
@@ -329,8 +331,11 @@ public class DungeonGenerator : MonoBehaviour {
     }
 
     private void OnGUI() {
+        if (!useDebugGUI)
+            return;
+
         GUILayout.BeginVertical();
-        if (GUILayout.Button("Generate"))
+        if (GUILayout.Button("Create Rooms"))
             CreateRooms();
         if (GUILayout.Button("Seperate"))
             SeperateRooms();
@@ -356,10 +361,15 @@ public class DungeonGenerator : MonoBehaviour {
         GUILayout.Space(10);
         if (GUILayout.Button("Reset"))
             ResetDungeon();
+        if (GUILayout.Button("Generate"))
+            GenerateDungeon();
         GUILayout.EndVertical();
     }
 
     private void OnDrawGizmos() {
+        if (!useDebugGUI)
+            return;
+
         if (allRooms == null) 
             return;
 
@@ -370,7 +380,7 @@ public class DungeonGenerator : MonoBehaviour {
             for (int x = 0; x < dungeon.GetLength(0); x++) { 
                 for (int y = 0; y < dungeon.GetLength(1); y++) {
                     Gizmos.color = Color.gray;
-                    //Gizmos.DrawWireCube(new Vector3(x + gridOffset.x - 0.5f, 0, y + gridOffset.y - 0.5f), new Vector3(1, 0, 1));
+                    Gizmos.DrawWireCube(new Vector3(x + gridOffset.x - 0.5f, 0, y + gridOffset.y - 0.5f), new Vector3(1, 0, 1));
                 }
             }
         } else {

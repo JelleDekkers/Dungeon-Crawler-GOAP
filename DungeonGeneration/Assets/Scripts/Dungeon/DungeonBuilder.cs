@@ -15,7 +15,7 @@ public class DungeonBuilder : MonoBehaviour {
     private DungeonData data;
     private List<TileEdge> doors;
 
-    private void Start() {
+    private void Awake() {
         GetComponent<DungeonGenerator>().OnGeneratingCompleted += BuildDungeonGameObjects;
     }
 

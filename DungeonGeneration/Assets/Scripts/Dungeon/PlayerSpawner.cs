@@ -8,7 +8,7 @@ public class PlayerSpawner : MonoBehaviour {
     public GameObject player;
     public GameObject playerInstance;
     
-    private void Start() {
+    private void Awake() {
         builder.OnDungeonBuilt += SpawnPlayer;
     }
 
