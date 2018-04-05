@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public float spawnFrequencyPerRoom = 0.7f;
     public IntMinMax enemiesPerRoom;
-    public Agent enemy;
+    public Agent[] enemies;
 
     private void Start() {
         GetComponent<DungeonBuilder>().OnDungeonBuilt += SpawnEnemies;
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour {
         for (int i = 0; i < amount; i++) {
             if (Random.value <= spawnFrequencyPerRoom) {
                 Vector3 rndPosition = new Vector3(room.position.x + Random.Range(-width / 2 + 1, width / 2 - 1), 0, room.position.y + Random.Range(-height / 2 + 1, height / 2 - 1));
-                Instantiate(enemy, rndPosition, Quaternion.Euler(0, Random.Range(0, 360), 0), transform);
+                Instantiate(enemies.GetRandom(), rndPosition, Quaternion.Euler(0, Random.Range(0, 360), 0), transform);
             }
         }
     }

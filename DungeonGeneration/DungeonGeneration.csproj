@@ -287,8 +287,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Agents\Agent.cs" />
     <Compile Include="Assets\Scripts\Agents\Player.cs" />
-    <Compile Include="Assets\Scripts\Character Controllers\AIController.cs" />
+    <Compile Include="Assets\Scripts\Agents\Skeleton.cs" />
+    <Compile Include="Assets\Scripts\Agents\SkeletonGrunt.cs" />
     <Compile Include="Assets\Scripts\Character Controllers\CustomCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Character Controllers\HumanoidAIController.cs" />
     <Compile Include="Assets\Scripts\Character Controllers\PhysicsCharacterController.cs" />
     <Compile Include="Assets\Scripts\Character Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\DetectionCollider.cs" />
@@ -312,9 +314,11 @@
     <Compile Include="Assets\Scripts\Dungeon\WaypointSpawner.cs" />
     <Compile Include="Assets\Scripts\GoalReachedHandler.cs" />
     <Compile Include="Assets\Scripts\GOAP\Action.cs" />
+    <Compile Include="Assets\Scripts\GOAP\Actions\MoveToBackupAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Actions\MoveToEnemyAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Actions\MoveToWeaponAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Actions\PickupWeaponAction.cs" />
+    <Compile Include="Assets\Scripts\GOAP\Actions\SearchForBackupAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Actions\SearchForWeaponAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\Actions\UseWeaponAction.cs" />
     <Compile Include="Assets\Scripts\GOAP\AgentAI.cs" />
@@ -322,6 +326,7 @@
     <Compile Include="Assets\Scripts\GOAP\EffectState.cs" />
     <Compile Include="Assets\Scripts\GOAP\Goal.cs" />
     <Compile Include="Assets\Scripts\GOAP\Goals\CollectWeaponGoal.cs" />
+    <Compile Include="Assets\Scripts\GOAP\Goals\GetBackupGoal.cs" />
     <Compile Include="Assets\Scripts\GOAP\Goals\KillEnemyGoal.cs" />
     <Compile Include="Assets\Scripts\GOAP\Goals\RoamGoal.cs" />
     <Compile Include="Assets\Scripts\GOAP\GOAPAgent.cs" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIController : CustomCharacterController {
+public class HumanoidAIController : CustomCharacterController {
 
     public Vector3 Destination { get; private set; }
 

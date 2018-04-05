@@ -246,11 +246,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11216a17f07a71d48ae7ec907cceda8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFrequencyPerRoom: 0.7
+  spawnFrequencyPerRoom: 0.8
   enemiesPerRoom:
-    min: 2
+    min: 1
     max: 6
-  enemy: {fileID: 114278911936534804, guid: 6dff71496fec23641a3886bf095df1e5, type: 2}
+  enemies:
+  - {fileID: 114192786809877012, guid: 6dff71496fec23641a3886bf095df1e5, type: 2}
+  - {fileID: 114033154548761254, guid: 02be7e96468377e478733e0b92521838, type: 2}
 --- !u!114 &668637615
 MonoBehaviour:
   m_ObjectHideFlags: 0

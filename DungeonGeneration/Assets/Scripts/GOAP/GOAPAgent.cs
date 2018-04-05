@@ -10,18 +10,17 @@ namespace GOAP {
         public Action currentAction;
         public Goal fallbackGoal;
 
-        [HideInInspector]
+        
         public Goal[] allGoals;
-        [HideInInspector]
         public Action[] allActions;
 
-        public AIController controller;
+        public HumanoidAIController controller;
 
         protected virtual void Start() {
             allActions = GetComponents<Action>();
             allGoals = GetComponents<Goal>();
 
-            controller = GetComponent<AIController>();
+            controller = GetComponent<HumanoidAIController>();
         }
 
         protected void InitializeActionsAndGoals() {

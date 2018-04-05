@@ -7,4 +7,6 @@
     InWeaponPickUpRange=(1 << 5),
     EnemyIsDead =       (1 << 6),
     HasLowHealth =      (1 << 7),
+    SeesBackup =        (1 << 8),
+    HasBackup =         (1 << 9),
 }
