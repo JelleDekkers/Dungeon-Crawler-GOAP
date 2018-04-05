@@ -20,6 +20,10 @@ public class WaypointSpawner : MonoBehaviour {
         foreach (Vector2Int corner in data.corridorCorners)
             CreateNewWayPoint(corner);
 
+        Door[] doors = FindObjectsOfType<Door>();
+        foreach (Door door in doors)
+            CreateNewWayPoint(new Vector2Int((int)door.transform.position.x, (int)door.transform.position.z));
+
         OnComplete();
     }
 
